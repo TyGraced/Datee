@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using API.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,9 +17,7 @@ namespace API
             var services = scope.ServiceProvider;
             try
             {
-                var context = services.GetRequiredService<DataContext>();
-                await context.Database.MigrateAsync();
-                await seed.SeedUsers(context);
+                
             }
             catch (Exception ex)
             {
